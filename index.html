@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hamming SEC-DED Simülatörü</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Hamming Code Çözücü</h1>
+
+    <label for="dataInput">Veri (8-bit):</label>
+    <input type="text" id="dataInput" maxlength="8" placeholder="Örn: 10101010">
+    <button onclick="encodeData()">Kodu Üret</button>
+
+    <hr>
+    <h2>32 Bitlik Hamming SEC-DED</h2>
+
+    <label for="dataInput32">Veri (32-bit):</label>
+    <input type="text" id="dataInput32" maxlength="32" placeholder="32 bit binary">
+    <button onclick="encodeData32()">Kodu Üret</button>
+
+    <h3>Kodlanmış Veri:</h3>
+    <p id="encodedOutput32"></p>
+
+    <label for="errorBit32">Hata Ekle (bit indexi, 0'dan başlar):</label>
+    <input type="number" id="errorBit32" min="0" max="38">
+    <button onclick="introduceError32()">Hata Oluştur</button>
+
+    <h3>Hatalı Veri:</h3>
+    <p id="corruptedOutput32"></p>
+
+    <button onclick="detectAndFix32()">Hata Tespit ve Düzeltme</button>
+    <h3>Düzeltilmiş Veri:</h3>
+    <p id="correctedOutput32"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
