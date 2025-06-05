@@ -12,8 +12,22 @@
     <input type="text" id="dataInput" maxlength="8" placeholder="Örn: 10101010">
     <button onclick="encodeData()">Kodu Üret</button>
 
+    <h3>Kodlanmış Veri (8-bit):</h3>
+    <p id="encodedOutput"></p>
+
+    <label for="errorBit">Hata Ekle (bit indexi, 0'dan başlar, 8-bit için):</label>
+    <input type="number" id="errorBit" min="0" max="11">
+    <button onclick="introduceError()">Hata Oluştur (8-bit)</button>
+
+    <h3>Hatalı Veri (8-bit):</h3>
+    <p id="corruptedOutput"></p>
+
+    <button onclick="detectAndFix()">Hata Tespit ve Düzeltme (8-bit)</button>
+    <h3>Düzeltilmiş Veri (8-bit):</h3>
+    <p id="correctedOutput"></p>
+
     <hr>
-    <h2>32 Bitlik Hamming SEC-DED</h2>
+    <h2>32 Bitlik Hamming Code Çözücü</h2>
 
     <label for="dataInput32">Veri (32-bit):</label>
     <input type="text" id="dataInput32" maxlength="32" placeholder="32 bit binary">
