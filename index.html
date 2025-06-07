@@ -6,46 +6,80 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hamming Code Çözücü</h1>
+    <nav>
+        <button id="btn-nav-8bit" onclick="showSection('section-8bit')" class="active">8-bit SEC-DED</button>
+        <button id="btn-nav-16bit" onclick="showSection('section-16bit')">16-bit SEC-DED</button>
+        <button id="btn-nav-32bit" onclick="showSection('section-32bit')">32-bit SEC-DED</button>
+    </nav>
 
-    <label for="dataInput">Veri (8-bit):</label>
-    <input type="text" id="dataInput" maxlength="8" placeholder="Örn: 10101010">
-    <button onclick="encodeData()">Kodu Üret</button>
+    <!-- 8-bit veri -->
+    <div id="section-8bit" class="content-section">
+        <h2>Hamming Code Çözücü (8-bit Veri)</h2>
 
-    <h3>Kodlanmış Veri (8-bit):</h3>
-    <p id="encodedOutput"></p>
+        <label for="dataInput">Veri (8-bit):</label>
+        <input type="text" id="dataInput" maxlength="8" placeholder="Örn: 10101010">
+        <button onclick="encodeData()">Kodu Üret</button>
 
-    <label for="errorBit">Hata Ekle (bit indexi, 0'dan başlar, 8-bit için):</label>
-    <input type="number" id="errorBit" min="0" max="11">
-    <button onclick="introduceError()">Hata Oluştur (8-bit)</button>
+        <h3>Kodlanmış Veri (12-bit):</h3>
+        <p id="encodedOutput"></p>
 
-    <h3>Hatalı Veri (8-bit):</h3>
-    <p id="corruptedOutput"></p>
+        <label for="errorBit">Hata Ekle (bit indexi, 0-11):</label>
+        <input type="number" id="errorBit" min="0" max="11">
+        <button onclick="introduceError()">Hata Oluştur</button>
 
-    <button onclick="detectAndFix()">Hata Tespit ve Düzeltme (8-bit)</button>
-    <h3>Düzeltilmiş Veri (8-bit):</h3>
-    <p id="correctedOutput"></p>
+        <h3>Hatalı Veri (12-bit):</h3>
+        <p id="corruptedOutput"></p>
 
-    <hr>
-    <h2>32 Bitlik Hamming Code Çözücü</h2>
+        <button onclick="detectAndFix()">Hata Tespit ve Düzeltme</button>
+        <h3>Düzeltilmiş Veri (12-bit):</h3>
+        <p id="correctedOutput"></p>
+    </div>
 
-    <label for="dataInput32">Veri (32-bit):</label>
-    <input type="text" id="dataInput32" maxlength="32" placeholder="32 bit binary">
-    <button onclick="encodeData32()">Kodu Üret</button>
+    <!-- 16-bit veri -->
+    <div id="section-16bit" class="content-section" style="display:none;">
+        <h2>Hamming SEC-DED Çözücü (16-bit Veri)</h2>
 
-    <h3>Kodlanmış Veri:</h3>
-    <p id="encodedOutput32"></p>
+        <label for="dataInput16">Veri (16-bit):</label>
+        <input type="text" id="dataInput16" maxlength="16" placeholder="16 bit binary">
+        <button onclick="encodeData16()">Kodu Üret</button>
 
-    <label for="errorBit32">Hata Ekle (bit indexi, 0'dan başlar):</label>
-    <input type="number" id="errorBit32" min="0" max="38">
-    <button onclick="introduceError32()">Hata Oluştur</button>
+        <h3>Kodlanmış Veri (22-bit):</h3>
+        <p id="encodedOutput16"></p>
 
-    <h3>Hatalı Veri:</h3>
-    <p id="corruptedOutput32"></p>
+        <label for="errorBit16">Hata Ekle (bit indexi, 0-21):</label>
+        <input type="number" id="errorBit16" min="0" max="21">
+        <button onclick="introduceError16()">Hata Oluştur</button>
 
-    <button onclick="detectAndFix32()">Hata Tespit ve Düzeltme</button>
-    <h3>Düzeltilmiş Veri:</h3>
-    <p id="correctedOutput32"></p>
+        <h3>Hatalı Veri (22-bit):</h3>
+        <p id="corruptedOutput16"></p>
+
+        <button onclick="detectAndFix16()">Hata Tespit ve Düzeltme</button>
+        <h3>Düzeltilmiş Veri (22-bit):</h3>
+        <p id="correctedOutput16"></p>
+    </div>
+
+    <!-- 32-bit veri -->
+    <div id="section-32bit" class="content-section" style="display:none;">
+        <h2>Hamming SEC-DED Çözücü (32-bit Veri)</h2>
+
+        <label for="dataInput32">Veri (32-bit):</label>
+        <input type="text" id="dataInput32" maxlength="32" placeholder="32 bit binary">
+        <button onclick="encodeData32()">Kodu Üret</button>
+
+        <h3>Kodlanmış Veri (39-bit):</h3>
+        <p id="encodedOutput32"></p>
+
+        <label for="errorBit32">Hata Ekle (bit indexi, 0-38):</label>
+        <input type="number" id="errorBit32" min="0" max="38">
+        <button onclick="introduceError32()">Hata Oluştur</button>
+
+        <h3>Hatalı Veri (39-bit):</h3>
+        <p id="corruptedOutput32"></p>
+
+        <button onclick="detectAndFix32()">Hata Tespit ve Düzeltme</button>
+        <h3>Düzeltilmiş Veri (39-bit):</h3>
+        <p id="correctedOutput32"></p>
+    </div>
 
     <script src="script.js"></script>
 </body>
