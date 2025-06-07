@@ -76,9 +76,9 @@ function encodeData() {
 
 // 8-bit Veride Hata Oluşturma 
 function introduceError() {
-    const bitIndex = parseInt(document.getElementById("errorBit").value);
-    if (isNaN(bitIndex) || bitIndex < 0 || bitIndex > 11) { // toplam 12 bit
-        alert("0-11 arasında bir bit pozisyonu giriniz.");
+    const bitIndexFromRight = parseInt(document.getElementById("errorBit").value);
+    if (isNaN(bitIndexFromRight) || bitIndexFromRight < 0 || bitIndexFromRight > 11) { // toplam 12 bit
+        alert("0-11 arasında bir bit pozisyonu giriniz (sağdan başlayarak).");
         return;
     }
     if (!originalCode8) {
@@ -87,7 +87,14 @@ function introduceError() {
     }
 
     let bits = originalCode8.split('');
-    bits[bitIndex] = bits[bitIndex] === '0' ? '1' : '0';
+    const actualBitIndex = (bits.length - 1) - bitIndexFromRight; 
+
+    if (actualBitIndex < 0 || actualBitIndex >= bits.length) {
+        alert("Geçersiz bit pozisyonu hesaplandı."); 
+        return;
+    }
+
+    bits[actualBitIndex] = bits[actualBitIndex] === '0' ? '1' : '0';
     corruptedCode8 = bits.join('');
 
     document.getElementById("corruptedOutput").innerText = corruptedCode8;
@@ -238,9 +245,9 @@ function encodeData16() {
 }
 
 function introduceError16() {
-    const bitIndex = parseInt(document.getElementById("errorBit16").value);
-    if (isNaN(bitIndex) || bitIndex < 0 || bitIndex > 21) { // toplam 22 bit
-        alert("0-21 arasında bir bit pozisyonu giriniz.");
+    const bitIndexFromRight = parseInt(document.getElementById("errorBit16").value);
+    if (isNaN(bitIndexFromRight) || bitIndexFromRight < 0 || bitIndexFromRight > 21) { // toplam 22 bit
+        alert("0-21 arasında bir bit pozisyonu giriniz (sağdan başlayarak).");
         return;
     }
     if (!originalCode16) {
@@ -248,7 +255,14 @@ function introduceError16() {
         return;
     }
     let bits = originalCode16.split('');
-    bits[bitIndex] = bits[bitIndex] === '0' ? '1' : '0';
+    const actualBitIndex = (bits.length - 1) - bitIndexFromRight; 
+
+    if (actualBitIndex < 0 || actualBitIndex >= bits.length) {
+        alert("Geçersiz bit pozisyonu hesaplandı."); 
+        return;
+    }
+
+    bits[actualBitIndex] = bits[actualBitIndex] === '0' ? '1' : '0';
     corruptedCode16 = bits.join('');
     document.getElementById("corruptedOutput16").innerText = corruptedCode16;
     document.getElementById("correctedOutput16").innerText = "";
@@ -362,9 +376,9 @@ function encodeData32() {
 }
 
 function introduceError32() {
-    const bitIndex = parseInt(document.getElementById("errorBit32").value);
-    if (isNaN(bitIndex) || bitIndex < 0 || bitIndex > 38) { 
-        alert("0-38 arasında bir bit pozisyonu giriniz.");
+    const bitIndexFromRight = parseInt(document.getElementById("errorBit32").value);
+    if (isNaN(bitIndexFromRight) || bitIndexFromRight < 0 || bitIndexFromRight > 38) { 
+        alert("0-38 arasında bir bit pozisyonu giriniz (sağdan başlayarak).");
         return;
     }
      if (!originalCode32) {
@@ -372,7 +386,14 @@ function introduceError32() {
         return;
     }
     let bits = originalCode32.split('');
-    bits[bitIndex] = bits[bitIndex] === '0' ? '1' : '0';
+    const actualBitIndex = (bits.length - 1) - bitIndexFromRight; 
+
+    if (actualBitIndex < 0 || actualBitIndex >= bits.length) {
+        alert("Geçersiz bit pozisyonu hesaplandı."); 
+        return;
+    }
+
+    bits[actualBitIndex] = bits[actualBitIndex] === '0' ? '1' : '0';
     corruptedCode32 = bits.join('');
     document.getElementById("corruptedOutput32").innerText = corruptedCode32;
     document.getElementById("correctedOutput32").innerText = ""; 
