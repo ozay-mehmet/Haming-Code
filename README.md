@@ -57,7 +57,7 @@ Hamming-Code/
 ├── index.html       # Ana kullanıcı arayüzü
 ├── style.css        # Arayüzün görsel stili
 ├── script.js        # Kodlama ve hata simülasyonu
-└── assets/
+└── docs/
     └── screenshot.png  # Ekran görüntüsü
     └── BLM230_Proje_MehmetOzay_22360859062.pdf  # Proje Raporu
 ```
